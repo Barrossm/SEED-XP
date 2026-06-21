@@ -1,0 +1,14 @@
+name: Keep Supabase Awake
+
+on:
+  schedule:
+    - cron: "0 12 * * *" # Roda automaticamente todos os dias ao meio-dia
+  workflow_dispatch: # Permite que você clique em um botão no GitHub para testar manualmente
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase API
+        run: |
+          curl -I "https://ytexbesvmgarnypwbuft.supabase.co"
