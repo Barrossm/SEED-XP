@@ -1,0 +1,4 @@
+[build]
+  base    = "SEED-XP-main"
+  command = "npm install --include=dev && npm run build"
+  publish = "dist"
