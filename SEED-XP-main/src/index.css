@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Seed a Bit — light corporate theme
+   Azul Marinho #063472 · Azul #0162B3 · Verde Limão #D8EA32 · Branco Gelo #FBFAFC */
+@layer base {
+  :root {
+    --background: 240 33% 99%;        /* #FBFAFC Branco Gelo */
+    --foreground: 215 86% 23%;        /* #063472 Azul Marinho como texto principal */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 86% 23%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 86% 23%;
+
+    --primary: 215 86% 23%;           /* #063472 Azul Marinho */
+    --primary-foreground: 240 33% 99%;
+
+    --primary-blue: 207 94% 36%;      /* #0162B3 Azul (links / interativos) */
+    --primary-blue-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 215 86% 23%;
+
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 67 82% 56%;             /* #D8EA32 Verde Limão */
+    --accent-foreground: 215 86% 23%;
+
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 67 82% 56%;
+    --success-foreground: 215 86% 23%;
+
+    --border: 215 25% 90%;
+    --input: 215 25% 90%;
+    --ring: 207 94% 36%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 86% 23%;
+    --sidebar-primary: 215 86% 23%;
+    --sidebar-primary-foreground: 240 33% 99%;
+    --sidebar-accent: 210 30% 96%;
+    --sidebar-accent-foreground: 215 86% 23%;
+    --sidebar-border: 215 25% 90%;
+    --sidebar-ring: 207 94% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply bg-background text-foreground;
+    min-height: 100%;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  /* Card corporativo limpo */
+  .card-surface {
+    @apply bg-card border border-border rounded-2xl shadow-sm;
+  }
+
+  /* Botão / chip de Bits (verde limão accent) */
+  .bits-chip {
+    @apply inline-flex items-center gap-1 rounded-full bg-accent text-accent-foreground
+           px-2.5 py-0.5 text-xs font-semibold;
+  }
+
+  /* Realce sutil tipo "marca-texto" verde limão */
+  .lime-underline {
+    background-image: linear-gradient(transparent 65%, hsl(var(--accent) / 0.55) 65%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 0 0.15em;
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
